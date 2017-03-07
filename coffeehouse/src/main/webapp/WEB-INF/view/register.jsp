@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<%@taglib uri="http://www.springframework.org/tags/form" prefix="fm"%>    
 <%@ include file="/WEB-INF/view/template/header.jsp" %>
 
 <html >
@@ -27,7 +27,7 @@
 
 * { -webkit-box-sizing:border-box; -moz-box-sizing:border-box; -ms-box-sizing:border-box; -o-box-sizing:border-box; box-sizing:border-box; }
 
-html { width: 100%; height:100%; overflow:hidden; }
+html { width: 100%; height:80%; overflow:hidden; }
 
 body { 
 	width: 100%;
@@ -41,7 +41,7 @@ body {
 }
 .register { 
 	position: absolute;
-	top: 37%;
+	top: 47%;
 	left: 50%;
 	margin: -150px 0 0 -150px;
 	width:300px;
@@ -79,25 +79,37 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
 <body>
   <div class="register">
 	<h1>REGISTER!!</h1>
-    <form method="post">
-    	<input type="text" name="first_name" placeholder="First Name" required="required" />
-    	<input type="text" name="last_name" placeholder="Last Name" required="required" />
-        <input type="text" name="u" placeholder="Username" required="required" />
-        <input type="text" name="email" placeholder="Enter Your Email Address" required="required" />
-        <input type="text" name="gender" placeholder="Gender" required="required" />
-        <input type="password" name="pass" placeholder="Password" required="required" />
-        <input type="password" name="C_pass" placeholder="Confirm Password" required="required" />
-		
-       
-		
-		
-        <button type="submit" class="btn btn-primary btn-block btn-large">REGISTER</button>
-    </form>
+    <fm:form action="registerUser" method="post">
+USERNAME<input type="input" name="userName" placeholder="UserName" />
+FISRTNAME<input type="input" name="firstName" placeholder="First Name" />
+LASTNAME<input type="input" name="lastName" placeholder="Last Name"  />
+EMAIL<input type="input" name="email" placeholder="Username" required="required" />
+GENDER<input type="input" name="gender" placeholder="Gender"  />
+DOB<input type="input" name="dateOfBirth" placeholder="DATE Of BIRTH (DD/MM/YYYY)"  />
+PHONENUMBER<input type="input" name="phnNumber" placeholder="DATE Of BIRTH (DD/MM/YYYY)"  />
+
+PASSWORD<input type="password" name="password" placeholder="Password"  />
+CONFIRMPASSWORD<input type="password" name="confirmPassword" placeholder="password"  />
+
+<script>
+    function myFunction() {
+        var pass1 = document.getElementById("password").value;
+        var pass2 = document.getElementById("comfirmPassword").value;
+        if (pass1 != pass2) {
+            alert("Passwords Do not match");
+            document.getElementById("pass1").style.borderColor = "#E34234";
+            document.getElementById("pass2").style.borderColor = "#E34234";
+        }
+        else {
+            alert("Passwords Match!!!");
+        }
+    }
+</script>
+
+        <button type="submit" class="btn btn-primary btn-block btn-large" onclick="myFunction">REGISTER</button>
+    </fm:form>
 </div>
-  <h2><a href="../index.html"><img src="home_button.png" height="50" width="50"></h2>
-    <script src="js/register.js"></script>
-
+<!--   <h2><a href="/"><img src="home_button.png" height="50" width="50"></h2>
+ -->
 </body>
-<%@ include file="/WEB-INF/view/template/footer.jsp" %>
-
 </html>

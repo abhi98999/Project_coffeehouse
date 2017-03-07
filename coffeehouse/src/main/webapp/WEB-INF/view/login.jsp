@@ -71,7 +71,6 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     </style>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
-  <script src="js/logincheck.js"></script>
 
 </head>
 
@@ -81,17 +80,19 @@ input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgb
     <form method="post">
     	<input type="text" name="user" placeholder="Username" required="required" />
         <input type="password" name="pass" placeholder="Password" required="required" />
-        <button input type="button"  id="submit" class="btn btn-primary btn-block btn-large" onclick="validate()">LOGIN</button>
+        <button input type="button"  id="submit" class="btn btn-primary btn-block btn-large" onclick="check(this.form)">LOGIN</button>
         
-        <p><a href="register">Register</p>
-        <p><a href="#forgotpass">Forgot Password?</p>
+
+
+   <p><a href="register">Register</p>
+   <p><a href="#forgotpass">Forgot Password?</p>
 		
 		
     	
     </form>
 </div>
-  <h2><a href="#"><img src="home_button.png" height="50" width="50"></h2>
-    <script src="#"></script>
+  <h2><a href="#"><img src="resources/images/home_button.png" height="50" width="50"></h2>
+
 
 </body>
 

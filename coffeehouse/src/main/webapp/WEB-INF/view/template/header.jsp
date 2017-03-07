@@ -5,17 +5,21 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
 <style>
 .navbar {
       margin-top: 10px;
       margin-bottom: 20px;
       border-radius: 10px;
     }
- </style>
+</style>
+</head> 
 <body>
+
+<header>
+
 	
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
@@ -24,15 +28,15 @@
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>
 	        <span class="icon-bar"></span>                        
-	      </button>
-		  
+	      </button>		  
+	      
 	      <a class="navbar-brand" href="#">COFFEE</a>
 	    </div>
 	    <div class="collapse navbar-collapse" id="myNavbar">
 	      <ul class="nav navbar-nav">
 	        <li class="active"><a href="/coffeehouse">Home</a></li>
 	        <li><a href="#">About</a></li>
-	        <li><a href="#">Products</a></li>
+	        <li><a href="product">Products</a></li>
 	        <li><a href="#">Deals</a></li>
 	        <li><a href="#">Stores</a></li>
 	        <li><a href="#">Contact</a></li>
@@ -46,5 +50,6 @@
 	  </div>
 	</nav>
 
+</header>
 </body>
 </html>
