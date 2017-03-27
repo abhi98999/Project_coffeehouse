@@ -7,6 +7,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -14,20 +15,19 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class User {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int userId;
-	
-	//@Column(unique=true)
+	@Column(unique=true)
 	@NotEmpty(message="please enter a diffrent username")
 	private String userName;
 	
 	@NotEmpty(message="enter the first name")
+	@Column(name="FIRST_NAME")
 	private String firstName;
 	
 	@NotEmpty(message="enter the last name")
+	@Column(name="LAST_NAME")
 	private String lastName;
 	
-	
+	@Email
 	@NotEmpty(message="enter your email address")
 	private String email;
 
@@ -44,19 +44,19 @@ public class User {
 	@Size(max=10)
 	private String phnNumber;
 	
-	//@NotEmpty(message="enter the date of birth(DD/MM/YYYY)")
+	@NotEmpty(message="enter the date of birth(DD/MM/YYYY)")
 	private String password;
 	
-//	@NotEmpty(message="enter the date of birth(DD/MM/YYYY)")
-	private String confirmPassword;
 
-	
-	public int getUserId() {
-		return userId;
+	private boolean isActive;
+
+
+	public boolean isActive() {
+		return isActive;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
 	}
 
 	public String getUserName() {
@@ -121,13 +121,7 @@ public class User {
 		this.password = password;
 	}
 
-	public String getConfirmPassword() {
-		return confirmPassword;
-	}
-
-	public void setConfirmPassword(String confirmPassword) {
-		this.confirmPassword = confirmPassword;
-	}
+	
 
 		
 }

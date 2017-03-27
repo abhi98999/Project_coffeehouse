@@ -46,7 +46,10 @@
     </bean>
     <bean id="userService" class="com.coffeehouse.service.UserServiceImpl">
         <property name="userDAO" ref="userDAO"></property>
+    
     </bean> 
+    <bean id="multipartResolver"   
+class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>  
        
     <tx:annotation-driven transaction-manager="hibernateTransactionManager"/>
    
