@@ -16,6 +16,10 @@ import org.springframework.web.multipart.MultipartFile;
 @Entity
 public class Product implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int productId;
@@ -27,7 +31,11 @@ public class Product implements Serializable {
 	private double productPrice;
 	@Transient
 	private MultipartFile image;
-
+	
+	public Product()
+	{
+		
+	}
 	
 	public MultipartFile getImage() {
 		return image;

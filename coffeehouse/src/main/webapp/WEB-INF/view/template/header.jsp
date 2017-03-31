@@ -10,16 +10,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  <link rel="stylesheet" href="/resources/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="/resources/js/bootstrap.min.js"></script>
 
-   
-    <script>function formSubmit()
- {
+   <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script>    
+    function formSubmit()
+ 	{
     document.getElementById("logout").submit();
     window.alert("LOGOUT SUCCESSFULL");
-
-		 }
+	}
 </script>
    
   <style>
@@ -72,8 +75,9 @@
                 </form>
      <div class="collapse navbar-collapse" id="myNavbar">
     <ul class="nav navbar-nav ">
-     <li class="active"><a href="${pageContext.request.contextPath}/index">HOME</a></li>
+      <li><a href="${pageContext.request.contextPath}/index">HOME</a></li>
       <li class="dropdown">
+        
         <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
         PRODUCTS
         <span class="caret"></span></a>
@@ -89,32 +93,38 @@
      
      <ul class="nav navbar-nav navbar-right">
      
-     <c:if test="${pageContext.request.userPrincipal.name != null}">
-    				<security:authentication var="user" property="principal.authorities" />
+     
 					<security:authorize var="loggedIn" access="isAuthenticated()">
 					<security:authorize access="hasRole('ROLE_ADMIN')">
-					<li style="color:red">ADMIN</li>
 					</security:authorize>
 					<security:authorize access="hasRole('ROLE_USER')">
-					<li style="color:red">User</li>
 					</security:authorize>
-					</security:authorize>	 
-					<li></li>
-					<li></li>
-					<li style="color:red"> Welcome  <i>${pageContext.request.userPrincipal.name}</i></li>
+					</security:authorize>	
+					
+     
+     
+     
+     				<security:authorize access="hasRole('ROLE_USER')">
+     				<li><a href="${pageContext.request.contextPath}/user/cart"><span
+							class="glyphicon glyphicon-shopping-cart"></span>CART</a></li>
+					</security:authorize>
+					<security:authorize access="hasRole('ROLE_ADMIN')">
+					<li><a href="${pageContext.request.contextPath}//admin/adminProduct"><span
+							class="glyphicon glyphicon-user"></span>ADMIN</a></li></security:authorize>
+    				<security:authorize access="isAuthenticated()"> 
+					<li style="color:red"> <br>Welcome  <i>${pageContext.request.userPrincipal.name}</i></li>
 					<li> <a href="javascript:formSubmit()">Logout</a></li>
-					</c:if>		
 					
-					
-   <c:if  test="${pageContext.request.userPrincipal.name==null}">
-   		
+					</security:authorize>
+				
+   		<security:authorize access="isAnonymous()">
        <li><a href="${pageContext.request.contextPath}/login"><span
 							class="glyphicon glyphicon-user"></span> Sign In</a></li>
        <li><a href="${pageContext.request.contextPath}/register"><span
 							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-   </c:if>
+ </security:authorize>
   </ul>
       </div>
   </div>
 </nav>
-</body></html>
+

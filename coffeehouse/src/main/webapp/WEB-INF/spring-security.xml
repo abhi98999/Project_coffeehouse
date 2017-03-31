@@ -9,7 +9,7 @@
 	
 	<http auto-config="true">
 	<intercept-url pattern="/" access="permitAll"/>
-	<intercept-url pattern="/userproduct" access="hasRole('ROLE_USER')"/>
+	<intercept-url pattern="/user/mycart" access="hasRole('ROLE_USER')"/>
 	<intercept-url pattern="/index" access="permitAll"/>
 	 <intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')"/>
 	 <intercept-url pattern="/user**" access="hasRole('ROLE_USER')" />

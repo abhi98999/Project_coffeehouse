@@ -3,7 +3,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <%@ include file="/WEB-INF/view/template/header.jsp" %>
-
+<html>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,6 +27,11 @@
 </style>
 </head>
 <body>
+
+	<security:authorize access="hasAuthority('ROLE_ADMIN')">
+	<jsp:forward page="/admin/adminProduct"></jsp:forward>
+	</security:authorize>
+
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -52,11 +57,11 @@
     
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <a class="left carousel-control"role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <a class="right carousel-control" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
       <span class="sr-only">Next</span>
     </a>

@@ -17,7 +17,7 @@
 <br><i>You must enter a description for the product.</i><br>
 
 <fm:form action="${pageContext.request.contextPath}/admin/adminP" method="post" enctype="multipart/form-data" commandName="product">  
-<table>
+<table >
 	<c:if test="${! empty product.productName }">
 	<tr><td>ID</td><td>:</td><td><fm:input type="text" path="productId" size="15" readonly="true" /></td></tr>
 </c:if>

@@ -33,6 +33,7 @@ import com.google.gson.Gson;
 @Controller
 public class ProductController {
     
+	private Product product;
 	ProductService productService;
 	@Autowired(required=true)
 //@Qualifier(required=true)
@@ -41,10 +42,12 @@ public class ProductController {
 		this.productService = productService;
 	}
 	
-@RequestMapping("/user/productdescription")
-public String pd()
-{
-	return ("productdescription");
+@RequestMapping(value="/productdescription")
+public ModelAndView pd(@ModelAttribute("product") Product p)
+{	System.out.println("hello");
+	ModelAndView mv=new ModelAndView("productdescription");
+	this.product=p;
+	return mv;
 }
 
 @RequestMapping(value = "/product/{description}", method = RequestMethod.GET)
@@ -68,15 +71,10 @@ public ModelAndView userProduct(@PathVariable("description") String category ,  
   }
   String json = new Gson().toJson(filteredlist);
   ModelAndView mv = new ModelAndView("userproduct");
-  mv.addObject("jsonproduct",json);
+  mv.addObject("product",json);
   return mv;
 }
 
-@RequestMapping("/productdescription")
-public String show()
-{
-	return "productdescription";
-}
 
 
 
